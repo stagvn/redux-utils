@@ -1,0 +1,30 @@
+{
+  "name": "@stagapps/redux-utils",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Stag Dev",
+  "homepage": "https://stag.vn",
+  "license": "",
+  "main": "src/index.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stagvn/redux-utils.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/stagvn/redux-utils/issues"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "qs": "^6.11.0",
+    "redux-api-call": "^1.2.1"
+  }
+}
