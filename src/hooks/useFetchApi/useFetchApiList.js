@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react'
 import { compact, flow, getOr, join } from 'lodash/fp'
-import { useSelector, useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
+import { customListDataSelectorCreator } from '../../reducers/reduxListApiCall'
 import {
   buildParamsString,
   customErrorSelectorCreator,
   customIsFetchingSelectorCreator,
   customLastRequestSelectorCreator,
 } from './utils'
-import { customListDataSelectorCreator } from '../../reducers/reduxListApiCall'
 
 const useFetchApiList = (apiCall, options = {}, initialState = {}) => {
   const {
@@ -97,6 +97,7 @@ const useFetchApiList = (apiCall, options = {}, initialState = {}) => {
   }
 
   return {
+    rawData,
     data: fullData,
     load,
     isLoading,

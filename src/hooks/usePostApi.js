@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const usePostApi = (apiCall, options = {}) => {
   if (!apiCall) {
@@ -31,6 +31,7 @@ const usePostApi = (apiCall, options = {}) => {
   const { [resourceName]: data } = rawData || {}
 
   return {
+    rawData,
     data,
     post,
     isLoading,
