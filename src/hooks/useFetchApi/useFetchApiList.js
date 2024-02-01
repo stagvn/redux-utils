@@ -13,25 +13,30 @@ import {
 const useFetchApiList = (apiCall, options = {}, initialState = {}) => {
   const {
     defaultParams = {},
+    apiCallSufixName = '',
     resourceName = 'items',
     pagingResourceName = 'paging',
   } = options
   const dispatch = useDispatch()
 
+  const apiCallName = apiCallSufixName
+    ? `${apiCall.name}_${apiCallSufixName}`
+    : apiCall.name
+
   const [paramsString, setParamsString] = useState('')
 
   const error = useSelector(
-    customErrorSelectorCreator(apiCall.name)(paramsString)
+    customErrorSelectorCreator(apiCallName)(paramsString)
   )
   const isFetching = useSelector(
-    customIsFetchingSelectorCreator(apiCall.name)(paramsString)
+    customIsFetchingSelectorCreator(apiCallName)(paramsString)
   )
   const lastRequest = useSelector(
-    customLastRequestSelectorCreator(apiCall.name)(paramsString)
+    customLastRequestSelectorCreator(apiCallName)(paramsString)
   )
 
   const rawData = useSelector(
-    customListDataSelectorCreator(apiCall.name)(paramsString)
+    customListDataSelectorCreator(apiCallName)(paramsString)
   )
 
   const fullData = getOr([], resourceName)(rawData)
@@ -63,7 +68,7 @@ const useFetchApiList = (apiCall, options = {}, initialState = {}) => {
       ...action,
       payload: {
         ...action.payload,
-        name: flow(compact, join('__'))([apiCall.name, paramsString]),
+        name: flow(compact, join('__'))([apiCallName, paramsString]),
         resourceName,
         isList: true,
       },
