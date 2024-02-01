@@ -13,14 +13,14 @@ import {
 const useFetchApiList = (apiCall, options = {}, initialState = {}) => {
   const {
     defaultParams = {},
-    apiCallSufixName = '',
+    apiCallSuffixName = '',
     resourceName = 'items',
     pagingResourceName = 'paging',
   } = options
   const dispatch = useDispatch()
 
-  const apiCallName = apiCallSufixName
-    ? `${apiCall.name}_${apiCallSufixName}`
+  const apiCallName = apiCallSuffixName
+    ? `${apiCall.name}_${apiCallSuffixName}`
     : apiCall.name
 
   const [paramsString, setParamsString] = useState('')
