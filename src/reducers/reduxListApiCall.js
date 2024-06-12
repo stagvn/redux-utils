@@ -1,5 +1,5 @@
+import { get, omit } from 'lodash/fp'
 import { ACTIONS } from 'redux-api-call'
-import { get, getOr, omit } from 'lodash/fp'
 
 const REDUCER_LIST_PATH = 'redux_api_call_hooks/list'
 
