@@ -1,6 +1,6 @@
 import { compact, flow, join } from 'lodash/fp'
-import { useSelector, useDispatch } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {
   buildParamsString,
