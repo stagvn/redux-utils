@@ -9,7 +9,7 @@ const reduxListApiCallReducer = (state = {}, action) => {
   try {
     switch (type) {
       case ACTIONS.COMPLETE:
-        const { name, isList, resourceName, json } = payload
+        const { name, isList, json } = payload
 
         if (!isList) {
           return state
